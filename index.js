@@ -24,4 +24,18 @@ app.put("/:id", (req, res) => {
     msg: req.params.id,
   });
 });
+app.delete("/:id", (req, res) => {
+  console.log(req.params.id);
+  res.status(201).json({
+    status: "success",
+    msg: req.params.id,
+  });
+});
+
+app.use("*", (req, res) => {
+  res.status(404).json({
+    status: "error",
+    msg: `url not found ${req.url}`,
+  });
+});
 app.listen(process.env.PORT, () => console.log("server up and running "));
