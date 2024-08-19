@@ -17,4 +17,11 @@ app.post("/", (req, res) => {
     msg: "Post request",
   });
 });
+app.put("/:id", (req, res) => {
+  console.log(req.params.id);
+  res.status(201).json({
+    status: "success",
+    msg: req.params.id,
+  });
+});
 app.listen(process.env.PORT, () => console.log("server up and running "));
